@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* Filosofia visual: Neo-Industrial Mobility — tokens escuros, vermelho técnico, cartões diagonais e tipografia condensada para landing premium. */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -37,7 +37,7 @@
     --input: 0 0% 18%;
     --ring: 0 85% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.35rem;
 
     /* DUACT Custom Colors */
     --duact-black: 0 0% 4%;
@@ -97,7 +97,9 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', sans-serif;
+    background-image: radial-gradient(circle at top left, hsl(var(--primary) / 0.08), transparent 32%), linear-gradient(180deg, hsl(var(--background)), hsl(0 0% 6%));
   }
 }
 
@@ -127,8 +129,18 @@
   }
 
   .card-hover:hover {
-    @apply -translate-y-2;
-    box-shadow: 0 20px 40px hsl(0 0% 0% / 0.4);
+    @apply -translate-y-1;
+    box-shadow: 0 18px 50px hsl(0 0% 0% / 0.42), 0 0 0 1px hsl(var(--duact-red) / 0.18);
+  }
+
+  /* Neo-Industrial diagonal cards */
+  .diagonal-card {
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  }
+
+  .eyebrow {
+    @apply mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase text-primary;
+    letter-spacing: 0.28em;
   }
 
   /* Text Gradient */
